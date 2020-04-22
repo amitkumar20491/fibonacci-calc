@@ -1,0 +1,43 @@
+{
+    "AWSDockerrunVersion" : 2,
+    "containerDefinations" : [
+        {
+            "name": "client",
+            "image": "amitkumar20491/fibcalc-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "server",
+            "image": "amitkumar20491/fibcalc-server",
+            "hostname": "api",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "worker",
+            "image": "amitkumar20491/fibcalc-worker",
+            "hostname": "worker",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "nginx",
+            "image": "amitkumar20491/fibcalc-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings" : [
+                {
+                    "hostPort" : 80 ,
+                    "containerPort" : 80
+                }
+            ],
+            "links" : [
+                "client",
+                "server"
+            ],
+            "memory": 128
+        }
+    ]
+}
