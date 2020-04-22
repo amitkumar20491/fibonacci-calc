@@ -9,7 +9,7 @@
             "memory": 128
         },
         {
-            "name": "server",
+            "name": "api",
             "image": "amitkumar20491/fibcalc-server",
             "hostname": "api",
             "essential": false,
@@ -35,7 +35,7 @@
             ],
             "links" : [
                 "client",
-                "server"
+                "api"
             ],
             "memory": 128
         }
