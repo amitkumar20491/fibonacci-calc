@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true amitkumar20491/client-test npm run test
 
 after_success:
-  - docker build amitkumar20491/fibcalc-client ./client
-  - docker build amitkumar20491/fibcalc-nginx ./nginx
-  - docker build amitkumar20491/fibcalc-server ./server
-  - docker build amitkumar20491/fibcalc-worker ./worker
+  - docker build -t amitkumar20491/fibcalc-client ./client
+  - docker build -t amitkumar20491/fibcalc-nginx ./nginx
+  - docker build -t amitkumar20491/fibcalc-server ./server
+  - docker build -t amitkumar20491/fibcalc-worker ./worker
   #Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub
